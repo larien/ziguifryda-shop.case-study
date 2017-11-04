@@ -1,0 +1,22 @@
+{{define "bar"}}
+<ul class="title-area">
+  <li class="name"><h1><a href="/">Super Shop</a></h1></li>
+  <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+</ul>
+
+<section class="top-bar-section">
+  <ul class="right">
+    {{if .login}}
+    <li><a href="/">{{.login}}</a></li>
+    <li><a href="/logout">logout</a></li>
+    {{else}}
+    <li><a href="/login">login</a></li>
+    <li><a href="/register">register</a></li>
+    {{end}}
+  </ul>
+
+  <ul class="left">
+    <li><a href="/products">products</a></li>
+  </ul>
+</section>
+{{end}}

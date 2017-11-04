@@ -1,0 +1,35 @@
+{{define "header"}}
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title dir="ltr">{{.Header}} - shop</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/foundation/css/normalize.css">
+    <link rel="stylesheet" href="/static/foundation/css/foundation.css" />
+    {{if .production}}
+    <!-- Modernize cdn or local -->
+    <script src="//cdn.jsdelivr.net/foundation/5.0.3/js/vendor/custom.modernizr.js"></script>
+    <script>window.Modernizr || document.write('<script src="/static/foundation/js/vendor/modernizr.js"><\/script>')</script>
+    {{else}}
+    <script src="/static/foundation/js/vendor/modernizr.js"></script>
+    {{end}}
+
+  </head>
+  <body>
+
+    <div class="contain-to-grid fixed">
+      <nav class="top-bar" data-topbar="">
+        {{template "bar" .}}
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>{{.Header}}</h1>
+      </div>
+    </div>
+{{end}}

@@ -1,0 +1,28 @@
+{{template "header" .}}
+<div class="row">
+  <div class="large-12 columns">
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th>title</th>
+          <th>description</th>
+          <th>price</th>
+          <th>quantity</th>
+          <th>filename</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range $h := .levels}}
+        <tr>
+          <td>{{$h.title}}</td>
+          <td>{{$h.description}}</td>
+          <td>{{$h.price}}</td>
+          <td>{{$h.quantity}}</td>
+          <td><img src="/static/assets/{{$h.filename}}"/></td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{template "footer" .}}

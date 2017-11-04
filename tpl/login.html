@@ -1,0 +1,19 @@
+{{template "header" .}}
+<form action="/login" method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <input type="text" placeholder="login" name="login" value="{{.login}}"></input>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <input type="password" placeholder="password" name="password"></input>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <input class="small radius button" type="submit" value="login"></input>
+    </div>
+  </div>
+</form>
+{{template "footer" .}}
