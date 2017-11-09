@@ -1,0 +1,51 @@
+$cor-primaria: #aa3939;
+$cor-auxiliar-1: #226666;
+$cor-auxiliar-2: #7A9F35;
+$cor-auxiliar-2-darker: #567714;
+$cor-fonte-primaria: #292b2c;
+$cor-fonte-auxiliar: #eceeef;
+
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: $cor-fonte-primaria;
+    background-color: $cor-fonte-auxiliar;
+}
+
+.jumbotron {
+    background-color: $cor-auxiliar-1;
+    color: $cor-fonte-auxiliar;
+}
+
+.btn-primary {
+    color: $cor-fonte-auxiliar;
+    background-color: $cor-auxiliar-2;
+    border-color: $cor-auxiliar-2;
+}
+
+.btn-primary:hover {
+    color: $cor-fonte-auxiliar;
+    background-color: $cor-auxiliar-2-darker;
+    border-color: $cor-auxiliar-2-darker;
+}
+
+.btn-primary:focus {
+    color: $cor-fonte-auxiliar;
+    background-color: $cor-auxiliar-2;
+    border-color: $cor-auxiliar-2;
+}
+
+.btn-outline-success {
+    color: $cor-auxiliar-2;
+    border-color: $cor-auxiliar-2;
+}
+
+.btn-outline-success:hover {
+    color: $cor-auxiliar-2-darker;
+    background-color: transparent;
+    border-color: $cor-auxiliar-2-darker;
+}
+
+.form-control {
+    color: #464a4c;
+    background-color: $cor-fonte-auxiliar;
+}

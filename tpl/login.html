@@ -1,19 +1,21 @@
 {{template "header" .}}
-<form action="/login" method="post">
-  <div class="row">
-    <div class="large-12 columns">
-      <input type="text" placeholder="login" name="login" value="{{.login}}"></input>
+<div class="container">
+  <form action="/login" method="post">
+    <div class="row">
+      <div class="col-4">
+        <input type="text" placeholder="login" name="login" value="{{.login}}"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input type="password" placeholder="password" name="password"></input>
+    <div class="row">
+      <div class="col-4">
+        <input type="password" placeholder="password" name="password"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input class="small radius button" type="submit" value="login"></input>
+    <div class="row">
+      <div class="col-4">
+        <input class="small radius button" type="submit" value="login"></input>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
 {{template "footer" .}}

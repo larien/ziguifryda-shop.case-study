@@ -1,20 +1,21 @@
 package main
 
 import (
-	"github.com/gorilla/mux"
-	"github.com/gorilla/sessions"
 	"flag"
 	"fmt"
-	_ "github.com/mattn/go-sqlite3"
 	"html/template"
-	"net/http"
 	"log"
-//	"reflect"
+	"net/http"
+
+	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
+	_ "github.com/mattn/go-sqlite3"
+	//	"reflect"
 )
 
 var (
-addr = flag.String("addr", ":9000", "http service address") // Q=17, R=18
-store = sessions.NewCookieStore([]byte("something-very-secret"))
+	addr  = flag.String("addr", ":9000", "http service address") // Q=17, R=18
+	store = sessions.NewCookieStore([]byte("something-very-secret"))
 )
 
 func main() {
@@ -42,7 +43,7 @@ func main() {
 		log.Fatalf("ListenAndServe: %v", http.ListenAndServe(":8080", http.HandlerFunc(notlsHandler)))
 	}()
 	go func() {
-		fmt.Println("https://localhost"+*addr)
+		fmt.Println("https://localhost" + *addr)
 		// go run generate_cert.go --host localhost
 		// this works for other domain than localhost, no need to supply domain name:
 		// openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes
@@ -66,7 +67,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		serveError(w, err)
 	}
 
-	tplValues := map[string]interface{}{"Header": "Home", "Copyright": "Roman Frołow"}
+	tplValues := map[string]interface{}{"Header": "Ziguifryda", "HeaderMessage": "O melhor site de compras online!", "Copyright": "Team ZIGUI"}
 	if _, ok := session.Values["login"]; ok {
 		tplValues["login"] = session.Values["login"]
 	}

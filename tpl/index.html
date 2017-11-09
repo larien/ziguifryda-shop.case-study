@@ -1,7 +1,19 @@
 {{template "header" .}}
-<div class="row">
-  <div class="large-12 columns">
-    <p>Hello</p>
-  </div>
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Bem vindo, aventureiro!</h1>
+      {{if .login}}
+      <p>
+          Procurando por uma nova caçada, porém faltando-lhe equipamentos? Encontre o armamento ideal para qualquer que seja sua aventura! 
+      </p>
+      {{else}}
+      <p>
+          Se esta é sua primeira viagem pelo incrível domínio de Ziguifryda, tome um pouco de seu tempo e junte-se a nós através de nosso incrível cadastro!
+          Incríveis vantagens podem ser obtidas, garantindo uma jornada segura e de sucesso!
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="/register" role="button">Cadastro »</a></p>
+      {{end}}
+      
+    </div>
 </div>
 {{template "footer" .}}

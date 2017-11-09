@@ -1,0 +1,38 @@
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color: #292b2c;
+  background-color: #eceeef; }
+
+.jumbotron {
+  background-color: #226666;
+  color: #eceeef; }
+
+.btn-primary {
+  color: #eceeef;
+  background-color: #7A9F35;
+  border-color: #7A9F35; }
+
+.btn-primary:hover {
+  color: #eceeef;
+  background-color: #567714;
+  border-color: #567714; }
+
+.btn-primary:focus {
+  color: #eceeef;
+  background-color: #7A9F35;
+  border-color: #7A9F35; }
+
+.btn-outline-success {
+  color: #7A9F35;
+  border-color: #7A9F35; }
+
+.btn-outline-success:hover {
+  color: #567714;
+  background-color: transparent;
+  border-color: #567714; }
+
+.form-control {
+  color: #464a4c;
+  background-color: #eceeef; }
+
+/*# sourceMappingURL=main.css.map */
