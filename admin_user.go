@@ -1,16 +1,17 @@
 package main
 
 import (
-	"net/http"
-	"fmt"
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
+	"fmt"
 	"html/template"
+	"net/http"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func admin_users(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "session-name")
-	tplValues := map[string]interface{}{"Header": "Users", "Copyright": "Roman Frołow"}
+	tplValues := map[string]interface{}{"Header": "Users"}
 	authorized := false
 	if i, ok := session.Values["admin_login"]; ok {
 		if i == "admin" {
@@ -19,7 +20,7 @@ func admin_users(w http.ResponseWriter, r *http.Request) {
 		tplValues["admin_login"] = i
 	}
 
-	if ! authorized {
+	if !authorized {
 		http.Redirect(w, r, "/admin/login", http.StatusSeeOther)
 		return
 	}

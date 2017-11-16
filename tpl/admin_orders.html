@@ -1,26 +1,24 @@
 {{template "header" .}}
-<div class="row">
-  <div class="large-12 columns">
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>user_id</th>
-          <th>product_id</th>
-          <th>price</th>
-          <th>sell_date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{range $h := .levels}}
-        <tr>
-          <td>{{$h.user_id}}</td>
-          <td>{{$h.product_id}}</td>
-          <td>{{$h.price}}</td>
-          <td>{{$h.sell_date}}</td>
-        </tr>
-        {{end}}
-      </tbody>
-    </table>
-  </div>
+<div class="default-content-mega-wide">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>ID Usuário</th>
+            <th>ID Produto</th>
+            <th>Preço</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $h := .levels}}
+          <tr>
+            <td>{{$h.user_id}}</td>
+            <td>{{$h.product_id}}</td>
+            <td>{{$h.price}}</td>
+            <td>{{$h.sell_date}}</td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
 </div>
 {{template "footer" .}}

@@ -1,39 +1,41 @@
 {{template "header" .}}
-<form action="/register" method="post">
-  <div class="row">
-    <div class="col-12">
-      <input type="text" placeholder="login" name="login" value="{{.login}}"></input>
+<div class="register">
+  <form action="/register" method="post">
+    <div class="row">
+      <div class="col-12">
+        <input type="text" placeholder="Usuário" name="login" value="{{.login}}"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <input type="password" placeholder="password" name="password"></input>
+    <div class="row">
+      <div class="col-12">
+        <input type="password" placeholder="Senha" name="password"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <input type="password" placeholder="retype password" name="repassword"></input>
+    <div class="row">
+      <div class="col-12">
+        <input type="password" placeholder="Confirmação da senha" name="repassword"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <input type="text" placeholder="name1" name="name1" value="{{.name1}}"></input>
+    <div class="row">
+      <div class="col-12">
+        <input type="text" placeholder="Nome" name="name1" value="{{.name1}}"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <input type="text" placeholder="name2" name="name2" value="{{.name2}}"></input>
+    <div class="row">
+      <div class="col-12">
+        <input type="text" placeholder="Sobrenome" name="name2" value="{{.name2}}"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <input type="text" placeholder="surname" name="surname" value="{{.surname}}"></input>
+    <div class="row">
+      <div class="col-12">
+        <input type="text" placeholder="Apelido" name="surname" value="{{.surname}}"></input>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <input class="small radius button" type="submit" value="register"></input>
+    <div class="row">
+      <div class="col-12">
+        <input class="btn btn-primary btn-sm" type="submit" value="Cadastrar" />
+      </div>
     </div>
-  </div>
-</form>
+  </form>  
+</div>
 {{template "footer" .}}

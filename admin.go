@@ -1,11 +1,12 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
-	_ "github.com/mattn/go-sqlite3"
 	"html"
 	"html/template"
+	"net/http"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func admin_login(w http.ResponseWriter, r *http.Request) {
@@ -37,7 +38,7 @@ func admin_login(w http.ResponseWriter, r *http.Request) {
 			serveError(w, err)
 		}
 
-		tplValues := map[string]interface{}{"Header": "Admin", "Copyright": "Roman Frołow"}
+		tplValues := map[string]interface{}{"Header": "Admin"}
 		if _, ok := session.Values["login"]; ok {
 			tplValues["admin_login"] = session.Values["admin_login"]
 		}
@@ -59,7 +60,7 @@ func admin_logout(w http.ResponseWriter, r *http.Request) {
 
 func admin_index(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "session-name")
-	tplValues := map[string]interface{}{"Header": "Admin Home", "Copyright": "Roman Frołow"}
+	tplValues := map[string]interface{}{"Header": "Admin Home"}
 	authorized := false
 	if i, ok := session.Values["admin_login"]; ok {
 		if i == "admin" {
@@ -68,7 +69,7 @@ func admin_index(w http.ResponseWriter, r *http.Request) {
 		tplValues["admin_login"] = i
 	}
 
-	if ! authorized {
+	if !authorized {
 		http.Redirect(w, r, "/admin/login", http.StatusSeeOther)
 	}
 

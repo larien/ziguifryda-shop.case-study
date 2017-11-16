@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"flag"
 	"fmt"
 	"html/template"
@@ -62,12 +63,38 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 	session, _ := store.Get(r, "session-name")
 
-	pageTemplate, err := template.ParseFiles("tpl/index.html", "tpl/header.html", "tpl/bar.html", "tpl/footer.html")
+	pageTemplate, err := template.ParseFiles("tpl/index.html", "tpl/header.html", "tpl/bar.html", "tpl/products.html", "tpl/footer.html")
 	if err != nil {
 		serveError(w, err)
 	}
 
-	tplValues := map[string]interface{}{"Header": "Ziguifryda", "HeaderMessage": "O melhor site de compras online!", "Copyright": "Team ZIGUI"}
+	tplValues := map[string]interface{}{"Header": "Arapuã", "HeaderMessage": "- O melhor site de compras online!"}
+	db, err := sql.Open("sqlite3", "file:./db/app.db?foreign_keys=true")
+	if err != nil {
+		serveError(w, err)
+		return
+	}
+	defer db.Close()
+
+	sql := "select title, description, price, quantity, filename from products order by title"
+	rows, err := db.Query(sql)
+	if err != nil {
+		fmt.Printf("%q: %s\n", err, sql)
+		serveError(w, err)
+		return
+	}
+	defer rows.Close()
+
+	levels := []map[string]string{}
+	var title, description, price, quantity, filename string
+	for rows.Next() {
+		rows.Scan(&title, &description, &price, &quantity, &filename)
+		levels = append(levels, map[string]string{"title": title, "description": description, "price": price, "quantity": quantity, "filename": filename})
+	}
+	tplValues["levels"] = levels
+
+	rows.Close()
+
 	if _, ok := session.Values["login"]; ok {
 		tplValues["login"] = session.Values["login"]
 	}

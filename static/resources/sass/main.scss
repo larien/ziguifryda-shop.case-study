@@ -11,9 +11,20 @@ body {
     background-color: $cor-fonte-auxiliar;
 }
 
+.cor-auxiliar-2-font {
+    color: $cor-auxiliar-2 !important;
+}
+
+.cor-auxiliar-2-font:hover {
+    color: $cor-auxiliar-2-darker;
+}
+
 .jumbotron {
     background-color: $cor-auxiliar-1;
     color: $cor-fonte-auxiliar;
+    border-radius: .3rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .btn-primary {
@@ -48,4 +59,53 @@ body {
 .form-control {
     color: #464a4c;
     background-color: $cor-fonte-auxiliar;
+}
+
+div.login {
+    margin: 50px;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+div.register {
+    margin: 50px;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+div.default-content {
+    margin: 50px;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+div.default-content-wide {
+    margin: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+div.default-content-mega-wide {
+    margin: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+img.logo {
+    height: 42px; 
+    width: 42px;
+}
+
+img.product-icon {
+    height: 100px; 
+    width: 100px;
+}
+
+table.table {
+    background-color: white;
+}
+
+table.table th{
+    background-color: $cor-auxiliar-2;
+    color: white;
 }

@@ -1,24 +1,28 @@
 {{define "bar"}}
-<ul class="title-area">
-  <li class="name"><h1><a href="/admin">Super Shop/Admin</a></h1></li>
-  <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-</ul>
 
-<section class="top-bar-section">
-  <ul class="right">
-    <li class="divider"></li>
-    {{if .admin_login}}
-    <li><a href="/admin">{{.admin_login}}</a></li>
-    <li><a href="/admin/logout">logout</a></li>
-    {{else}}
-    <li><a href="/admin/login">login</a></li>
-    {{end}}
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/admin">
+    <img src="/static/assets/ziguifryda_logo.png" alt="Ziguifryda" class="logo">
+  </a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item"><a class="nav-link" href="/admin/products">Produtos</a></li>
+    <li class="nav-item"><a class="nav-link" href="/admin/users">Usuários</a></li>
+    <li class="nav-item"><a class="nav-link" href="/admin/orders">Pedidos</a></li>
   </ul>
 
-  <ul class="left">
-    <li><a href="/admin/products">products</a></li>
-    <li><a href="/admin/users">users</a></li>
-    <li><a href="/admin/orders">orders</a></li>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      {{if .admin_login}}
+      <a class="nav-link" href="/admin/logout">Logout</a>
+      {{else}}
+      <a class="nav-link" href="/admin/login">Login</a>
+      {{end}}
+    </li>
   </ul>
-</section>
+</nav>
+
 {{end}}

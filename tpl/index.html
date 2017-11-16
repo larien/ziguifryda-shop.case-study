@@ -1,5 +1,5 @@
 {{template "header" .}}
-<div class="jumbotron">
+<div class="jumbotron rounded-bottom">
     <div class="container">
       <h1 class="display-3">Bem vindo, aventureiro!</h1>
       {{if .login}}
@@ -8,12 +8,15 @@
       </p>
       {{else}}
       <p>
-          Se esta é sua primeira viagem pelo incrível domínio de Ziguifryda, tome um pouco de seu tempo e junte-se a nós através de nosso incrível cadastro!
-          Incríveis vantagens podem ser obtidas, garantindo uma jornada segura e de sucesso!
+          Se esta é sua primeira viagem pelo fabuloso domínio de Arapuã, tome um pouco de seu tempo e junte-se a nós através de nosso mirabolante cadastro!
+          Vantagens avassaladoras podem ser obtidas, garantindo uma jornada segura e de sucesso!
         </p>
         <p><a class="btn btn-primary btn-lg" href="/register" role="button">Cadastro »</a></p>
       {{end}}
       
     </div>
 </div>
+
+{{template "products" .}}
+
 {{template "footer" .}}

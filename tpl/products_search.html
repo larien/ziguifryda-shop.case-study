@@ -1,0 +1,28 @@
+{{define "products" .}}
+<div class="default-content-wide">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Imagem</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range $h := .levels}}
+      <tr>
+        <td>{{$h.title}}</td>
+        <td>{{$h.description}}</td>
+        <td>{{$h.price}}</td>
+        <td>{{$h.quantity}}</td>
+        <td>
+          <img src="/static/assets/{{$h.filename}}" class="product-icon"/>
+        </td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}

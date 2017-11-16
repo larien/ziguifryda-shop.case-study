@@ -1,28 +1,28 @@
-{{template "header" .}}
-<div class="row">
-  <div class="large-12 columns">
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>title</th>
-          <th>description</th>
-          <th>price</th>
-          <th>quantity</th>
-          <th>filename</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{range $h := .levels}}
-        <tr>
-          <td>{{$h.title}}</td>
-          <td>{{$h.description}}</td>
-          <td>{{$h.price}}</td>
-          <td>{{$h.quantity}}</td>
-          <td><img src="/static/assets/{{$h.filename}}"/></td>
-        </tr>
-        {{end}}
-      </tbody>
-    </table>
-  </div>
+{{define "products"}}
+<div class="default-content-mega-wide">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Imagem</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range $h := .levels}}
+      <tr>
+        <td>{{$h.title}}</td>
+        <td>{{$h.description}}</td>
+        <td>{{$h.price}}</td>
+        <td>{{$h.quantity}}</td>
+        <td>
+          <img src="/static/assets/{{$h.filename}}" class="product-icon"/>
+        </td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
 </div>
-{{template "footer" .}}
+{{end}}

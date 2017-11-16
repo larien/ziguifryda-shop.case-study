@@ -1,22 +1,23 @@
 package main
 
 import (
-	"net/http"
-	"fmt"
+	"bytes"
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
+	"fmt"
 	"html"
 	"html/template"
-	"io/ioutil"
 	"io"
-	"os"
+	"io/ioutil"
 	"log"
-	"bytes"
+	"net/http"
+	"os"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func admin_products(w http.ResponseWriter, r *http.Request) {
 	session, _ := store.Get(r, "session-name")
-	tplValues := map[string]interface{}{"Header": "Products", "Copyright": "Roman Frołow"}
+	tplValues := map[string]interface{}{"Header": "Products"}
 
 	authorized := false
 	if i, ok := session.Values["admin_login"]; ok {
@@ -26,7 +27,7 @@ func admin_products(w http.ResponseWriter, r *http.Request) {
 		tplValues["admin_login"] = i
 	}
 
-	if ! authorized {
+	if !authorized {
 		http.Redirect(w, r, "/admin/login", http.StatusSeeOther)
 		return
 	}
@@ -34,7 +35,7 @@ func admin_products(w http.ResponseWriter, r *http.Request) {
 	fVals := map[string]string{}
 	if r.Method == "POST" {
 		if false {
-			hah, err := ioutil.ReadAll(r.Body);
+			hah, err := ioutil.ReadAll(r.Body)
 			if err != nil {
 				fmt.Printf("%s", err)
 			}
@@ -107,19 +108,19 @@ func admin_products(w http.ResponseWriter, r *http.Request) {
 
 		message_error := []string{}
 		if fVals["title"] == "" {
-			message_error = append(message_error, "title can't be empty")
+			message_error = append(message_error, "O título não pode ser vazio!")
 		}
 		if fVals["description"] == "" {
-			message_error = append(message_error, "description can't be empty")
+			message_error = append(message_error, "A descrição não pode ser vazia!")
 		}
 		if fVals["price"] == "" {
-			message_error = append(message_error, "price can't be empty")
+			message_error = append(message_error, "O preço não pode ser vazio!")
 		}
 		if fVals["quantity"] == "" {
-			message_error = append(message_error, "quantity can't be empty")
+			message_error = append(message_error, "A quantidade não pode ser vazia!")
 		}
 		if fVals["filename"] == "" {
-			message_error = append(message_error, "filename can't be empty")
+			message_error = append(message_error, "O arquivo não pode ser vazio!")
 		}
 
 		if len(message_error) != 0 {
@@ -168,7 +169,7 @@ func admin_products(w http.ResponseWriter, r *http.Request) {
 
 			session.Values["last_product"] = last
 			session.Save(r, w)
-			tplValues["message_info"] = []string{"Adding succeeded"}
+			tplValues["message_info"] = []string{"Produto cadastrado com sucesso!"}
 		}
 	}
 

@@ -1,86 +1,94 @@
 {{template "header" .}}
 
-{{if .message_info}}
-<div class="row">
-  <div class="large-12 columns">
-    <div class="message-info">
-      {{range .message_info}}
-      <p>{{.}}</p>
-      {{end}}
-    </div>
-  </div>
-</div>
-{{end}}
-
-{{if .message_error}}
-<div class="row">
-  <div class="large-12 columns">
-    <div class="message-error">
-      {{range .message_error}}
-      <p>{{.}}</p>
-      {{end}}
-    </div>
-  </div>
-</div>
-{{end}}
-
-<form action="/admin/products" method="post" enctype="multipart/form-data">
-  <input type="hidden" value="yes" name="sent"></input>
+<div class="default-content-wide">
+  {{if .message_info}}
   <div class="row">
     <div class="large-12 columns">
-      <input type="text" placeholder="title" name="title" value="{{.fVals.title}}"></input>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input type="text" placeholder="description" name="description" value="{{.fVals.description}}"></input>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input type="text" placeholder="price" name="price" value="{{.fVals.price}}"></input>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input type="text" placeholder="quantity" name="quantity" value="{{.fVals.quantity}}"></input>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input class="small radius button" type="file" name="filename" id="filename" multiple="multiple">
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <input class="small radius button" type="submit" value="add product">
-    </div>
-  </div>
-</form>
-<div class="row">
-  <div class="large-12 columns">
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>title</th>
-          <th>description</th>
-          <th>price</th>
-          <th>quantity</th>
-          <th>filename</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{range $h := .levels}}
-        <tr>
-          <td>{{$h.title}}</td>
-          <td>{{$h.description}}</td>
-          <td>{{$h.price}}</td>
-          <td>{{$h.quantity}}</td>
-          <td><img src="/static/assets/{{$h.filename}}"/></td>
-        </tr>
+      <div class="message-info">
+        {{range .message_info}}
+        <p>{{.}}</p>
         {{end}}
-      </tbody>
-    </table>
+      </div>
+    </div>
+  </div>
+  {{end}} {{if .message_error}}
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="message-error">
+        {{range .message_error}}
+        <p>{{.}}</p>
+        {{end}}
+      </div>
+    </div>
+  </div>
+  {{end}}
+</div>
+
+<div class="default-content-mega-wide">
+  <div class="row">
+
+    <div class="col-10">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Imagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $h := .levels}}
+          <tr>
+            <td>{{$h.title}}</td>
+            <td>{{$h.description}}</td>
+            <td>{{$h.price}}</td>
+            <td>{{$h.quantity}}</td>
+            <td>
+              <img src="/static/assets/{{$h.filename}}" class="product-icon" />
+            </td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2">
+      <form action="/admin/products" method="post" enctype="multipart/form-data">
+        <input type="hidden" value="yes" name="sent"></input>
+        <div class="row">
+          <div class="large-12 columns">
+            <input type="text" placeholder="Título" name="title" value="{{.fVals.title}}"></input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input type="text" placeholder="Descrição" name="description" value="{{.fVals.description}}"></input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input type="text" placeholder="Preço" name="price" value="{{.fVals.price}}"></input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input type="text" placeholder="Quantidade" name="quantity" value="{{.fVals.quantity}}"></input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input class="small radius button" type="file" name="filename" id="filename" multiple="multiple">
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input class="btn btn-primary btn-sm" type="submit" value="Cadastrar Produto">
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
+
 {{template "footer" .}}

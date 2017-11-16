@@ -1,13 +1,14 @@
 package main
 
 import (
-	"net/http"
-	"fmt"
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
-	"github.com/gorilla/sessions"
+	"fmt"
 	"html"
 	"html/template"
+	"net/http"
+
+	"github.com/gorilla/sessions"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func loginAvailable(login string) bool {
@@ -121,7 +122,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 			serveError(w, err)
 		}
 
-		tplValues := map[string]interface{}{"Header": "Register", "Copyright": "Roman Frołow"}
+		tplValues := map[string]interface{}{"Header": "Register"}
 		if i, ok := session.Values["login"]; ok {
 			tplValues["login"] = i
 		}
@@ -144,7 +145,7 @@ func registered(w http.ResponseWriter, r *http.Request) {
 	//fmt.Println("login:")
 	//fmt.Println(req2.(map[interface{}]string)["login"])
 
-	tplValues := map[string]interface{}{"Header": "Registered", "Copyright": "Roman Frołow"}
+	tplValues := map[string]interface{}{"Header": "Registered"}
 	if req, ok := session.Values["req"]; ok {
 		fmt.Println("req:")
 		fmt.Println(req)
@@ -183,7 +184,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 			serveError(w, err)
 		}
 
-		tplValues := map[string]interface{}{"Header": "User", "Copyright": "Roman Frołow"}
+		tplValues := map[string]interface{}{"Header": "User"}
 		if _, ok := session.Values["login"]; ok {
 			tplValues["login"] = session.Values["login"]
 		}

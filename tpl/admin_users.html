@@ -1,28 +1,26 @@
 {{template "header" .}}
-<div class="row">
-  <div class="large-12 columns">
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>login</th>
-          <th>password</th>
-          <th>name1</th>
-          <th>name2</th>
-          <th>surname</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{range $h := .levels}}
-        <tr>
-          <td>{{$h.login}}</td>
-          <td>{{$h.password}}</td>
-          <td>{{$h.name1}}</td>
-          <td>{{$h.name2}}</td>
-          <td>{{$h.surname}}</td>
-        </tr>
-        {{end}}
-      </tbody>
-    </table>
-  </div>
+<div class="default-content-mega-wide">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Senha</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Apelido</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $h := .levels}}
+          <tr>
+            <td>{{$h.login}}</td>
+            <td>{{$h.password}}</td>
+            <td>{{$h.name1}}</td>
+            <td>{{$h.name2}}</td>
+            <td>{{$h.surname}}</td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
 </div>
 {{template "footer" .}}
